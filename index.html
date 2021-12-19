@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="./lib/fontawesome-free-6.0.0-beta3-web/css/all.min.css">
+    <link rel="icon" href="./icon/iconWeb.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            padding: 4px 0;
+        }
+
+        ul {
+            padding: 4px 16px;
+
+        }
+
+        li {
+            padding: 4px 0;
+
+        }
+
+        .main {
+            display: flex;
+
+
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(241, 241, 241);
+        }
+
+        .menu {
+            display: block;
+            width: 20%;
+            height: 100%;
+            color: white;
+            background-color: rgb(31, 31, 31);
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-item:active,
+        .menu-item:focus {
+            color: red;
+            text-decoration: none;
+        }
+
+        ul,
+        .myUL {
+            list-style-type: none;
+        }
+
+        .myUL {
+            margin: 0;
+            padding: 12px;
+        }
+
+
+
+        .caret {
+            cursor: pointer;
+            -webkit-user-select: none;
+            /* Safari 3.1+ */
+            -moz-user-select: none;
+            /* Firefox 2+ */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+        }
+
+        .nested {
+            display: none;
+            margin: 4px 4px 4px 24px;
+        }
+
+        .nested li {
+            padding: 4px;
+        }
+
+        .nested li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .horizontal {
+            transform: rotate(-90deg);
+        }
+
+        .rotation-icon {
+            transition: 0.4s;
+            transform: rotate(0deg);
+            color: rgb(49, 109, 238);
+        }
+
+        /* css content */
+
+        .content {
+            padding: 8px;
+            height: 100vh;
+            width: 80%;
+            overflow: auto;
+        }
+
+        /* Custom Scrollbar */
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 4px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(155, 153, 153);
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(187, 187, 187);
+        }
+
+
+        /* css conten*/
+        .content {
+            scroll-behavior: smooth;
+            font-size: 20px;
+
+        }
+
+        .part {
+            padding: 24px 4px 24px 4px;
+        }
+
+        .part-title {
+            padding: 0px 0px 16px 0px;
+            color: rgb(26, 133, 226);
+        }
+
+        .part-tutorial {
+            padding: 4px 16px;
+        }
+
+        .img-resize {
+            padding-left: 16px;
+            padding-bottom: 16px;
+            width: 90%;
+            height: 90%;
+        }
+
+        .size-small {
+            padding-left: 16px;
+            padding-bottom: 16px;
+            width: 60%;
+            height: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="menu">
+            <ul class="myUL">
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý đặt phòng</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhong">Tìm kiếm phòng</a></li>
+                        <li><a class="menu-item" href="#lamMoi_QLDP">Làm mới tìm kiếm</a></li>
+                        <li><a class="menu-item" href="#capNhatPhong">Chức năng cập nhật</a></li>
+                        <li><a class="menu-item" href="#huyPhieuDat">Chức năng hủy phiếu đặt</a></li>
+                        <li><a class="menu-item" href="#xemThongTinPhong">Chức năng xem thông tin</a></li>
+                        <li><a class="menu-item" href="#inPhieuDat">Chức năng in phiếu đặt</a></li>
+
+                    </ul>
+                </li>
+
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý khách hàng</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemKhachHang">Tìm kiếm</a></li>
+                        <li><a class="menu-item" href="#lamMoi_QLKH">Làm mới tìm kiếm</a></li>
+                        <li><a class="menu-item" href="#capNhatKhachHang">Cập nhật</a></li>
+
+                    </ul>
+                </li>
+
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý hóa đơn</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemHoaDon">Chức năng tìm kiếm</a></li>
+                        <li><a class="menu-item" href="#lamMoi_QLHD">Làm mới tìm kiếm</a></li>
+                        <li><a class="menu-item" href="#xemHoaDon">Chức năng xem hóa đơn</a></li>
+                        <li><a class="menu-item" href="#inHoaDon">Chức năng in hóa đơn</a></li>
+                        <li><a class="menu-item" href="#sapXepHoaDon">Chức năng sắp xếp</a></li>
+
+                    </ul>
+                </li>
+
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý nhân viên</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhong">Thêm nhân viên</a></li>
+                        <li><a class="menu-item" href="#capNhatPhong">Xem chi tiết và sửa thông tin nhân viên</a>
+                        </li>
+                        <li><a class="menu-item" href="#capNhatPhong">Tìm kiếm nhân viên</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <!-- Begin: QUẢN LÝ ĐẶT PHÒNG -->
+            <div id="timKiemPhong" class="part">
+                <h3 class="part-title">Quản lý đặt phòng / Tìm kiếm phòng</h3>
+                <p class="part-tutorial">
+                <p>
+                    Có thể tìm kiếm riêng biệt như: tên phòng, tên khách hàng, trạng thái phiếu, ngày đặt của phiếu. Có
+                    thể tìm kiếm kết hợp tất cả các yếu tố trên.
+                    <br>
+                    Nút đánh số phía dưới bảng hiển thị trang của dữ liệu, có thể tùy chọn trang hoặc xem
+                    thêm về tổng số trang. Các nút số trang sẽ được cập nhật khi người thực hiện chức năng, nó
+                    tương ứng với tổng số dữ liệu trên bảng / 20.
+                </p>
+
+                <ul>
+                    <li>
+                        - Tìm phiếu đặt phòng của phòng nào đó bằng cách nhập tên phòng vào ô có dòng chữ
+                        mờ “Nhập tên phòng”. Những phiếu đặt phòng của phòng đó sẽ được hiển thị bên
+                        dưới bảng.
+                    </li>
+                    <li>
+                        - Tìm phiếu đặt phòng của khách hàng nào đó bằng cách nhập tên khách hàng đó vào
+                        ô có dòng chữ mờ “Nhập tên khách hàng”. Những phiếu đặt phòng của khách hàng
+                        đó sẽ được hiển thị bên dưới bảng.
+                    </li>
+                    <li>
+                        - Lọc phiếu theo trạng thái: chọn trạng thái muốn hiển thị bên trong hộp dữ liệu “Lọc
+                        theo trạng thái”. Những phiếu đặt phòng nào có trạng thái đã được chọn sẽ được hiển
+                        thị bên dưới bảng.
+                    </li>
+                    <li>
+                        - Tìm theo ngày đặt: chọn ngày muốn tìm tại phần “Tìm theo ngày đặt”. Những phiếu
+                        đặt phòng nào có ngày đặt là ngày được chọn sẽ được hiển thị lên bảng.
+                    </li>
+                    <li>
+
+                        <img src="./img/QLDatPhong/timKiemPhong.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Trường hợp “Tìm phòng”: 001, những phiếu thuộc phòng 001 sẽ được hiển thị lên bảng như
+                        sau:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/timKiemPhong2.png" alt="" class="img-resize">
+
+                    </li>
+                    <li>
+                        - Trường hợp tìm tên phòng kết hợp với tên khách hàng: (Phòng: 001, khách hàng có chữ ‘l’
+                        trong tên):
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/timKiemPhong3.png" alt="" class="img-resize">
+
+                    </li>
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+
+            <div id="lamMoi_QLDP" class="part">
+                <h3 class="part-title">Làm mới tìm kiếm</h3>
+                <p class="part-tutorial">
+                <p>
+                    Nhấp chuột trái vào nút “Làm mới” sẽ giúp người dùng xóa rỗng các ô nhập dữ liệu
+                    tìm kiếm, chọn ngày tìm kiếm và hộp chọn trạng thái trở về trạng thái chưa chọn. Đồng thời
+                    dữ liệu trên bảng sẽ được tải lại như ban đầu.
+                </p>
+
+                <img src="./img/QLDatPhong/lamMoiTK.png" alt="" class="img-resize">
+
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+
+            <div id="capNhatPhong" class="part">
+                <h3 class="part-title">Cập nhật đặt phòng</h3>
+                <p class="part-tutorial">
+                <p>
+                    Nhấp vào nút cập nhật có hình tựa chiếc nút màu xanh vào dòng muốn cập nhật thông
+                    tin ngay trên bảng.
+                    Điều kiện tiên quyết để sửa thành công là phiếu đặt phòng có trạng thái “Đang đợi”, các
+                    trạng thái còn lại thì không thể sửa bao gồm: “Đã tiếp nhận”, “Đã hủy”, “Hết hạn”.
+                </p>
+                <ul>
+                    <li>
+                        - Trường hợp người dùng chọn vào phiếu có trạng thái “Đã tiếp nhận” hoặc “Đã hủy” hoặc “Hết hạn”
+                        sẽ xuất hiện thông báo sau:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/capNhatPhong1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Trường hợp người dùng chọn phiếu có trạng thái đang đợi, một cửa sổ khác sẽ xuất hiện như
+                        sau:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/capNhatPhong2.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Tại cửa sổ này, người dùng có thể chỉnh sửa lại thông tin của phiếu như ngày-giờ đặt, phòng
+                        mới, tiền cọc. <br> Sau đó, người dùng nhấp chuột trái vào nút “Chỉnh sửa” trên cửa sổ để cập
+                        nhật
+                        thông tin mới cho phiếu. Sau khi hoàn thành, một thông báo thành công sẽ xuất hiện như hình dưới
+                        đây:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/capNhatPhong3.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Sau đó, người dùng nhấp chuột vào nút làm mới để hoàn tất việc sửa và thông tin sau khi
+                        cập nhật phiếu sẽ được tải lại.
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/capNhatPhong4.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="huyPhieuDat" class="part">
+                <h3 class="part-title">Quản lý đặt phòng / Hủy phiếu đặt</h3>
+                <p class="part-tutorial">
+                <p>
+                    Điều kiện tiên quyết để hủy đặt thành công là phiếu của bạn đang ở trạng thái “Đang
+                    đợi”. Nếu phiếu thuộc các trạng thái sau thì không thể hủy phiếu, gồm “Đã hủy”, “Hết hạn”,
+                    “Đã tiếp nhận”.
+                </p>
+
+                <ul>
+                    <li>
+                        - Người dùng sẽ nhấp chuột vào nút có hình tựa thùng rác màu đỏ ngay trên bảng tại vị
+                        trí của phiếu muốn hủy.
+                    </li>
+
+                    <li>
+
+                        <img src="./img/QLDatPhong/huyPhieuDat1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Trường hợp người dùng nhấp chuột trái vào nút chỉnh sửa tại vị trí của phiếu có trạng thái
+                        thuộc 1 trong 3 trạng thái không thể hủy, mộ thông báo sẽ xuất hiện như hình dưới đây:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/huyPhieuDat2.png" alt="" class="img-resize">
+
+                    </li>
+                    <li>
+                        - Trường hợp người nhấp chuột trái vào nút hủy của đúng phiếu có trạng thái “Đang đợi”,
+                        một thông báo xác nhận sẽ xuất hiện:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/huyPhieuDat3.png" alt="" class="img-resize">
+                        <ul>
+                            <li>
+                                + Nếu người dùng chọn “No”, có nghĩa quá trình hủy phiếu sẽ dừng lại, phiếu sẽ không
+                                bị hủy.
+                            </li>
+                            <li>
+                                + Nếu người dùng chọn “Yes”, hệ thống sẽ tiến hành hủy phiếu và thông báo kết quả.
+                                Kết quả hiển thị dưới đây có nghĩa là phiếu đã được hủy thành công:
+                            </li>
+                            <li>
+                                <img src="./img/QLDatPhong/huyPhieuDat4.png" alt="" class="img-resize">
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Người dùng xác nhận “OK”, thông tin của phiếu sẽ được tải lại như sau:
+                    </li>
+                    <li>
+                        <img src="./img/QLDatPhong/huyPhieuDat5.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+
+            <div id="xemThongTinPhong" class="part">
+                <h3 class="part-title">Quản lý đặt phòng / Xem thông tin phòng</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        - Người dùng nhấp chuột trái 2 lần vào dòng chứa phiếu đặt muốn xem thông tin. Màn
+                        hình hiển thị thông tin cụ thể của phiếu đặt sẽ xuất hiện.
+                    </li>
+
+                    <li>
+                        <img src="./img/QLDatPhong/xemThongTinPhong.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+
+            <div id="inPhieuDat" class="part">
+                <h3 class="part-title">Quản lý đặt phòng / In phiếu đặt phòng</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        - Khi thực hiện chức năng “Xem thông tin”, người dùng cũng sẽ đồng thời thấy được
+                        nút in ở góc trên bên phải màn hình. Nếu muốn in, người dùng nhấp chuột trái vào nút in,
+                        cửa sổ tùy chọn in sẽ hiện ra. Người dùng tùy chọn in theo ý muốn để in phiếu.
+                    </li>
+
+                    <li>
+                        <img src="./img/QLDatPhong/inPhieuDat.png" alt="" class="img-resize">
+                        <img src="./img/QLDatPhong/inPhieuDat2.png" alt="" class="img-resize size-small">
+                    </li>
+                    <li>
+                        - Nhấn “OK” để in. Hình của 1 phiếu đặt phòng sau khi in:
+                    </li>
+
+                    <li>
+                        <img src="./img/QLDatPhong/phieuDat.png" alt="" class="img-resize size-small">
+                    </li>
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+            <!-- End: QUẢN LÝ ĐẶT PHÒNG -->
+
+
+            <!-- Begin: QUẢN LÝ KHÁCH HÀNG -->
+            <div id="timKiemKhachHang" class="part">
+                <h3 class="part-title">Quản lý khách hàng / In phiếu đặt phòng</h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Người dùng nhập thông tin cần tìm vào ô tìm kiếm. Hệ thống sẽ tiến hành tìm kiếm
+                        tương đối theo dữ liệu mà người dùng nhập vào. Người dùng có thể tìm kiếm theo tên khách
+                        hàng, hoặc số điện thoại của khách hàng, hoặc căn cước công dân của khách hàng.
+                        <br>
+                        Dưới đây là 1 ví dụ tìm kiếm theo tên khách hàng: (Tên khách hàng: nga). Hệ thống
+                        sẽ tiến hành tìm kiếm đươc theo tên khách hàng 1 cách tương đối, những khách hàng nào có
+                        “nga” trong tên, sẽ được hiển thị trên bảng.
+                        <br>
+                        Số trang cũng đồng thời được cập nhật phía dưới bảng.
+                    </li>
+
+                    <li>
+                        <img src="./img/QLKhachHang/timKiemKH.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="lamMoi_QLKH" class="part">
+                <h3 class="part-title">Quản lý khách hàng / Làm mới tìm kiếm</h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Khi người dùng nhấp chuột trái vào nút “Làm mới”, hệ thống sẽ tiến hành xóa trắng
+                        dữ liệu mà người dùng nhập vào trong ô tìm kiếm, đồng thời dữ liệu trên bảng sẽ được tải
+                        lại toàn bộ.
+                    </li>
+
+                    <li>
+                        <img src="./img/QLKhachHang/timKiemKH.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="capNhatKhachHang" class="part">
+                <h3 class="part-title">Quản lý khách hàng / Cập nhật khách hàng</h3>
+                <p class="part-tutorial">
+                <p>
+                    Hệ thống cung cấp chức năng ngay trên bảng tại “Quản lý khách hàng”. Người dùng có thể
+                    chỉnh sửa thông tin “Số điện thoại” của khách hàng ngay trên bảng.
+                </p>
+                <ul>
+                    <li>
+                        - Tiến hành chỉnh sửa một khách hàng: dưới đây là thông tin trước khi sửa của một khách
+                        hàng có mã "KH0000001".
+                    </li>
+                    <li>
+                        <img src="./img/QLKhachHang/capNhatKH1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Nhấp chuột trái 2 lần vào ô số điện thoại:
+                    </li>
+                    <li>
+                        <img src="./img/QLKhachHang/capNhatKH2.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Tiến hành sửa: người dùng nhập thông tin cần sửa vào ô “Số điện thoại”, sau đó nhấn “Enter”
+                        hoặc nhấp chuột trái 1 lần để hoàn tất.
+                    </li>
+                    <li>
+                        <img src="./img/QLKhachHang/capNhatKH3.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Khi người dùng nhập sai định dạng, 1 thông báo “không hợp lệ” sẽ xuất hiện như hình trên
+                        (cụ thể là nhập hơn 10 số). Ngược lại, nếu nhập đúng, hệ thống cũng sẽ thông báo “thành công”
+                        cho
+                        người dùng.
+                    </li>
+                    <li>
+                        <img src="./img/QLKhachHang/capNhatKH4.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        - Người dùng nhấn “OK” để xác nhận. Sau đó, dữ liệu sẽ được tải lại như hình dưới đây:
+                    </li>
+                    <li>
+                        <img src="./img/QLKhachHang/capNhatKH5.png" alt="" class="img-resize">
+                    </li>
+
+                </ul>
+                </p>
+            </div>
+            <hr>
+            <!-- End: QUẢN LÝ KHÁCH HÀNG -->
+
+
+            <!-- Begin: QUẢN LÝ HÓA ĐƠN -->
+            <div id="timKiemHoaDon" class="part">
+                <h3 class="part-title">Quản lý hóa đơn / Tìm kiếm hóa đơn</h3>
+                <p class="part-tutorial">
+
+                <p>
+                    Khung phía trên của giao diện “Quản lý hóa đơn” bao gồm toàn bộ chức năng tìm
+                    kiếm dữ liệu:
+                    <img src="./img/QLHoaDon/timKiemHoaDon.png" alt="" class="img-resize">
+                </p>
+
+                <h4>
+                    Phần 1: Tìm kiếm theo thời gian (ngày lập hóa đơn).
+                    <p>
+                        Tất cả 5 mục trong phần (1) có thể tìm kiếm theo từng mục riêng biệt, cũng có thể tìm kiếm
+                        kết hợp cả 5 mục.
+                    </p>
+                </h4>
+
+                <ul>
+
+                    <li>
+                        - Mục 1: Tìm kiếm theo thời gian (từ)
+                        <ul>
+                            <li>
+                                Khi người dùng chọn ngày trong mục (1), những hóa đơn được lập từ ngày mục (1)
+                                tới ngày lập hóa đơn gần nhất (nếu mục 2 rỗng) sẽ được hiển thị lên bảng:
+                                <br>
+                                Như ví dụ dưới đây: những hóa đơn từ ngày 20-11-2021 đến ngày lập hóa đơn gần
+                                nhất là 30-11-2021 sẽ được hiển thị lên bảng, tất cả gồm 5 trang dữ liệu.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon2.png" alt="" class="img-resize">
+                            </li>
+                            <li>
+                                Nếu mục (2) cũng được chọn ngày, hệ thống sẽ tiến hành tìm kiếm những hóa đơn có ngày
+                                lập từ mục (1) đến mục (2).
+                                <br>
+                                Như hình dưới đây: dữ liệu sẽ được tìm kiếm những hóa đơn có ngày lập từ 20-11-2021 đến
+                                22-11-2021. Kết quả gồm 1 trang dữ liệu.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon3.png" alt="" class="img-resize">
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Mục 2: Tìm kiếm theo thời gian (đến)
+                        <ul>
+                            <li>
+                                Khi người dùng chọn ngày trong mục (2), những hóa đơn từ thời điểm đầu tiên được
+                                lập (nếu mục 1 rỗng) tới ngày lập hóa đơn mục (2) sẽ được hiển thị lên bảng.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon4.png" alt="" class="img-resize">
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Mục 3: Lọc theo năm
+                        <ul>
+                            <li>
+                                Người dùng có thể tùy chọn năm trong hộp dữ liệu mục (3) bằng cách nhấp chuột trái
+                                vào nó để lọc ra hóa đơn cụ thể vào năm nào. Mục (3) sẽ kết hợp với mục (1) và mục (2)
+                                để
+                                khoanh vùng dữ liệu nhỏ hơn.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon5.png" alt="" class="img-resize">
+                                <br>
+                                Hệ thống tìm kiếm những hóa đơn từ ngày 29-12-2020 đến ngày 03-01-2021 và lọc
+                                ra những hóa đơn trong năm 2020 hiển thị lên bảng
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Mục 4: Lọc theo quý
+                        <ul>
+                            <li>
+                                Tương tự như mục (3), người dùng có thể tùy chọn quý trong hộp dữ liệu khi nhấp chuột
+                                trái
+                                vào nó để lọc ra những hóa đơn trong quý cụ thể nào đó. Mục này thường kết hợp mục (1),
+                                mục (2)
+                                và cả mục (3) để khoanh vùng dữ liệu nhỏ hơn.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon6.png" alt="" class="img-resize">
+                                <br>
+                                Hệ thống tìm kiếm những hóa đơn trong khoảng từ ngày 29-12-2021 đến 03-01-2021 thuộc
+                                quý 4 của năm 2020.
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Mục 5: Lọc theo tháng
+                        <ul>
+                            <li>
+                                Tương tự mục (3) hoặc (4), ở mục (5), người dùng cũng nhấp chuột trái vào hộp dữ
+                                liệu tháng để tìm kiếm những hóa đơn của tháng cụ thể nào đó. Mục này cũng được kết hợp
+                                với mục (1), (2), (3), (4) để khoanh vùng dữ liệu nhỏ hơn.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon7.png" alt="" class="img-resize">
+                                <br>
+                                Hệ thống sẽ tìm kiếm những hóa đơn có ngày lập nằm trong khoảng 29-12-2020 đến 11-03-
+                                2021 thuộc tháng 1 của quý 1 trong năm 2021.
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+                <h4>
+                    Phần 2: Tìm kiếm cụ thể (theo cột)
+                </h4>
+                <ul>
+
+                    <li>
+                        - Mục 6: Chọn cột cần tìm
+                        <ul>
+                            <li>
+                                Hộp dữ liệu ở mục 6 chứa 3 cột dữ liệu để tìm là “Mã hóa đơn”, “Khách hàng” sẽ
+                                được tìm theo tên khách hàng và “Phòng” sẽ được tìm theo tên phòng hát. Người dùng có
+                                thể chọn 1 trong 3 tiêu chí cụ thể trên để tìm ra được hóa đơn mình muốn.
+
+                                <br>
+                                Mỗi khi người dùng chọn cột nào đó, ô dữ liệu mục (7) sẽ hiện chú thích mờ để người
+                                dùng hiểu dữ liệu được tìm theo tiêu chí nào.
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon8.png" alt="" class="img-resize size-small">
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        - Mục 7: Ô nhập dữ liệu tìm kiếm
+                        <ul>
+                            <li>
+                                Mục này kết hợp với mục (6) để tìm kiếm. Người dùng sẽ nhập dữ liệu tương ứng với
+                                dữ liệu đã chọn ở mục (6).
+                                <br>
+
+                                Tìm theo mã:
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon9.png" alt="" class="img-resize">
+                                <br>
+                                Tìm theo khách hàng:
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon10.png" alt="" class="img-resize">
+                                <br>
+                                Tìm theo phòng:
+                                <br>
+                                <img src="./img/QLHoaDon/timKiemHoaDon11.png" alt="" class="img-resize">
+                                <br>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+
+            <div id="lamMoi_QLHD" class="part">
+                <h3 class="part-title">Quản lý hóa đơn / Làm mới tìm kiếm</h3>
+                <p class="part-tutorial">
+                <p>
+                    Nút “Làm mới” màu xanh góc phải ở khung phía trên sẽ thực hiện chức năng này.
+                    Khi người dùng nhấp chuột trái vào nút “Làm mới”. Toàn bộ dữ liệu người dùng chọn hay
+                    nhập ở khung phía trên sẽ được trở về trạng thái chưa chọn hoặc rỗng, đồng thời dữ liệu trên
+                    bảng sẽ được tải lại toàn bộ.
+                    <img src="./img/QLHoaDon/lamMoi_QLHD.png" alt="" class="img-resize">
+                </p>
+
+                </p>
+            </div>
+            <hr>
+
+            <div id="xemHoaDon" class="part">
+                <h3 class="part-title">Quản lý hóa đơn / Xem hóa đơn</h3>
+                <p class="part-tutorial">
+
+
+                <ul>
+                    <li>
+                        Người dùng nhấp chuột trái 2 lần vào dòng chứa hóa đơn muốn xem, một khung chứa
+                        thông tin chi tiết của một hóa đơn sẽ hiện ra bên phải.
+                        <br>
+                        <img src="./img/QLHoaDon/xemHoaDon1.png" alt="" class="img-resize">
+                    </li>
+
+                    <li>
+                        Thông tin cụ thể:
+                        <br>
+                        <img src="./img/QLHoaDon/xemHoaDon2.png" alt="" class="img-resize size-small">
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+            <hr>
+
+            <div id="inHoaDon" class="part">
+                <h3 class="part-title">Quản lý hóa đơn / In hóa đơn</h3>
+                <p class="part-tutorial">
+
+
+                <ul>
+                    <li>
+                        Khi người dùng nhấp chuột trái vào dòng hóa đơn để xem thông tin, một khung chứa
+                        thông tin chi tiết hóa đơn hiện về phía bên phải màn hình. Trên khung chứa này, ở góc trên
+                        bên phải có 1 nút “IN”, người dùng nhấp chuột trái vào nút “IN” thì một khung chứa thông
+                        tin in ấn sẽ hiện ra.
+                        <br>
+                        <img src="./img/QLHoaDon/inHoaDon1.png" alt="" class="img-resize size-small">
+                        <img src="./img/QLHoaDon/inHoaDon2.png" alt="" class="img-resize size-small">
+                    </li>
+
+                    <li>
+                        Người dùng kiểm tra thông tin
+                        muốn in rồi nhấn “OK” để in. Hóa đơn sau khi in hiển thị như hình dưới đây:
+                        <br>
+                        <img src="./img/QLHoaDon/inHoaDon3.png" alt="" class="img-resize size-small">
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+            <hr>
+
+            <div id="sapXepHoaDon" class="part">
+                <h3 class="part-title">Quản lý hóa đơn / Sắp xếp hóa đơn</h3>
+                <p class="part-tutorial">
+
+
+                <ul>
+                    <li>
+                        Người dùng có thể sắp xếp dữ liệu tăng hoặc giảm ngay trên bảng dữ liệu bằng cách
+                        nhấp chuột trái vào tên cột dữ liệu, dữ liệu sẽ được sắp xếp lại theo ý muốn. Mặc định dữ
+                        liệu được sắp xếp giảm dần theo ngày lập hóa đơn.
+                        <br>
+                        <img src="./img/QLHoaDon/sapXepHoaDon1.png" alt="" class="img-resize">
+                    </li>
+
+                    <li>
+                        Dữ liệu được sắp xếp lại tăng dần theo mã hóa đơn tại trang đang hiển thị trên màn hình.
+                        <br>
+                        Dấu mũi tên ngay tên cột thể hiện người dùng đã nhấp chuột và thực hiện chức năng sắp xếp cột.
+
+                        <br>
+                        <br>
+                        Dữ liệu được sắp xếp theo “Tổng tiền mặt hàng” tăng dần.
+                        <br>
+                        <img src="./img/QLHoaDon/sapXepHoaDon2.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+
+                </p>
+            </div>
+            <hr>
+            <!-- End: QUẢN LÝ HÓA ĐƠN -->
+
+
+
+        </div>
+    </div>
+
+
+    <script>
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        //duyệt qua tất cả class .caret
+        for (i = 0; i < toggler.length; i++) {
+            //thêm sự kiện lắng nghe trên từng .caret
+            toggler[i].addEventListener("click", function () {
+                //thêm class active để hiện các item con
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                //xoay icon
+                this.parentNode.querySelector('.caret i').classList.toggle('rotation-icon');
+            });
+        }
+    </script>
+
+    <script>
+
+        // document.getElementsByClassName('menu-item')[0].onclick = changeColor;
+
+        function changeColor() {
+            document.querySelector('.menu-item').click().style.color = "yellow";
+            // document.body.style.color = "purple";
+            // return false;
+        }
+
+    </script>
+</body>
+
+</html>
