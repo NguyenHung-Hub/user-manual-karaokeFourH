@@ -10,182 +10,33 @@
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="./lib/fontawesome-free-6.0.0-beta3-web/css/all.min.css">
-    <link rel="icon" href="./icon/iconWeb.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <link rel="icon" href="./assets/icon/iconWeb.png">
 
-        p {
-            padding: 4px 0;
-        }
-
-        ul {
-            padding: 4px 16px;
-
-        }
-
-        li {
-            padding: 4px 0;
-
-        }
-
-        .main {
-            display: flex;
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
 
 
-            width: 100%;
-            height: 100vh;
-            background-color: rgb(241, 241, 241);
-        }
-
-        .menu {
-            display: block;
-            width: 20%;
-            height: 100%;
-            color: white;
-            background-color: rgb(31, 31, 31);
-        }
-
-        .menu-item {
-            color: white;
-            text-decoration: none;
-        }
-
-        .menu-item:active,
-        .menu-item:focus {
-            color: red;
-            text-decoration: none;
-        }
-
-        ul,
-        .myUL {
-            list-style-type: none;
-        }
-
-        .myUL {
-            margin: 0;
-            padding: 12px;
-        }
-
-
-
-        .caret {
-            cursor: pointer;
-            -webkit-user-select: none;
-            /* Safari 3.1+ */
-            -moz-user-select: none;
-            /* Firefox 2+ */
-            -ms-user-select: none;
-            /* IE 10+ */
-            user-select: none;
-        }
-
-        .nested {
-            display: none;
-            margin: 4px 4px 4px 24px;
-        }
-
-        .nested li {
-            padding: 4px;
-        }
-
-        .nested li:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .active {
-            display: block;
-        }
-
-        .horizontal {
-            transform: rotate(-90deg);
-        }
-
-        .rotation-icon {
-            transition: 0.4s;
-            transform: rotate(0deg);
-            color: rgb(49, 109, 238);
-        }
-
-        /* css content */
-
-        .content {
-            padding: 8px;
-            height: 100vh;
-            width: 80%;
-            overflow: auto;
-        }
-
-        /* Custom Scrollbar */
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px grey;
-            border-radius: 4px;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: rgb(155, 153, 153);
-            border-radius: 10px;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgb(187, 187, 187);
-        }
-
-
-        /* css conten*/
-        .content {
-            scroll-behavior: smooth;
-            font-size: 20px;
-
-        }
-
-        .part {
-            padding: 24px 4px 24px 4px;
-        }
-
-        .part-title {
-            padding: 0px 0px 16px 0px;
-            color: rgb(26, 133, 226);
-        }
-
-        .part-tutorial {
-            padding: 4px 16px;
-        }
-
-        .img-resize {
-            padding-left: 16px;
-            padding-bottom: 16px;
-            width: 90%;
-            height: 90%;
-        }
-
-        .size-small {
-            padding-left: 16px;
-            padding-bottom: 16px;
-            width: 60%;
-            height: 60%;
-        }
-    </style>
 </head>
 
 <body>
     <div class="main">
         <div class="menu">
             <ul class="myUL">
+                <li>
+                    <span class="caret"> <a class="menu-item ml-20" href="#dangNhap"> Đăng nhập</a></span>
+                </li>
+
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Chức năng người dùng</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                    </ul>
+                </li>
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Sơ đồ phòng hát</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                    </ul>
+                </li>
+
                 <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý đặt phòng</span>
                     <ul class="nested">
                         <li><a class="menu-item" href="#timKiemPhong">Tìm kiếm phòng</a></li>
@@ -227,10 +78,47 @@
 
                     </ul>
                 </li>
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Báo cáo thống kê</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                    </ul>
+                </li>
+                <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý hàng hóa</span>
+                    <ul class="nested">
+                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
         <div class="content">
+
+
+
+            <!-- Begin: ĐĂNG NHẬP-->
+            <div id="dangNhap" class="part">
+                <h3 class="part-title">Đăng nhập</h3>
+                <p class="part-tutorial">
+                <p>
+                    Có thể tìm kiếm riêng biệt như: tên phòng, tên khách hàng, trạng thái phiếu, ngày đặt của phiếu. Có
+                    thể tìm kiếm kết hợp tất cả các yếu tố trên.
+
+                </p>
+
+                <ul>
+                    <li>
+                        - Tìm phiếu đặt phòng của phòng nào đó bằng cách nhập tên phòng vào ô có dòng chữ
+                        mờ “Nhập tên phòng”. Những phiếu đặt phòng của phòng đó sẽ được hiển thị bên
+                        dưới bảng.
+                    </li>
+                </ul>
+
+                </p>
+
+            </div>
+            <hr>
+            <!-- End: ĐĂNG NHẬP-->
+
             <!-- Begin: QUẢN LÝ ĐẶT PHÒNG -->
             <div id="timKiemPhong" class="part">
                 <h3 class="part-title">Quản lý đặt phòng / Tìm kiếm phòng</h3>
