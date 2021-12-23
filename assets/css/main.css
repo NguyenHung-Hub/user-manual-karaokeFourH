@@ -11,7 +11,8 @@
     width: 20%;
     height: 100%;
     color: white;
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(40, 42, 54);
+    overflow: auto;
 }
 
 .menu-item {
