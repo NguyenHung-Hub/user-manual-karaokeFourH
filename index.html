@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng dẫn</title>
+    <title>Hướng dẫn Karaoke FourH </title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
@@ -101,12 +101,14 @@
                 </li>
                 <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Báo cáo thống kê</span>
                     <ul class="nested">
-                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                        <li><a class="menu-item" href="#thongKeDoanhThu">Thống kê doanh thu</a></li>
+                        <li><a class="menu-item" href="#thongKeHangHoa">Thống kê hàng hóa</a></li>
                     </ul>
                 </li>
                 <li><span class="caret"> <i class="fas fa-chevron-down horizontal"></i> Quản lý hàng hóa</span>
                     <ul class="nested">
-                        <li><a class="menu-item" href="#timKiemPhongHat">Tìm kiếm phòng</a></li>
+                        <li><a class="menu-item" href="#xemMatHang">Xem mặt hàng</a></li>
+                        <li><a class="menu-item" href="#themMatHang">Thêm mặt hàng</a></li>
                     </ul>
                 </li>
             </ul>
@@ -414,6 +416,79 @@
             </div>
             <hr>
             <!-- End: SƠ ĐỒ PHÒNG HÁT-->
+
+
+            <!-- Begin: DANH SÁCH PHÒNG HÁT-->
+            <div id="timKiemPhong_DS" class="part">
+                <h3 class="part-title">Danh sách phòng hát / Tìm kiếm phòng </h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Nhập tên phòng vào ô tìm kiếm, có thể lọc phòng theo loại ở combobox. Phần mềm sẽ hiển
+                        thị 20 kết quả tìm kiếm ở mỗi trang, có thể xem thêm nhiều kết quả hơn bằng việc click vào
+                        các nút chuyển trang ở bên dưới.
+                        <br>
+                        - Khi muốn làm trống ô tìm kiếm và combobox loại phòng và hiển thị lại mặc định thì click
+                        vào dấu 3 chấm ở góc trên và chọn “Làm mới”
+                        <br>
+                        <img src="./img/DSPhong/timKiemPhong.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="taoPhongHat" class="part">
+                <h3 class="part-title">Danh sách phòng hát / Tạo phòng </h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Click dấu 3 chấm ở góc trên và chọn “Tạo Phòng”
+                        <br>
+                        <img src="./img/DSPhong/taoPhong.png" alt="" class="img-resize">
+                    </li>
+
+                    <li>
+                        - Sau khi nhập thông tin và thêm ảnh xong thì bấm nút “Thêm” để hoàn thành.
+                        <br>
+                        <img src="./img/DSPhong/taoPhong2.png" alt="" class="img-resize">
+                    </li>
+
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="suaPhong" class="part">
+                <h3 class="part-title">Danh sách phòng hát / Sửa thông tin phòng </h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Để sửa thông tin phòng hát thì click chuột trái vào biểu tượng chỉnh sửa như hình, người
+                        dùng chỉnh sửa các thông tin cần thiết, sau đó bấm nút “Cập nhật” để hoàn thành.
+                        <br>
+                        <img src="./img/DSPhong/taoPhong.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="xoaPhong" class="part">
+                <h3 class="part-title">Danh sách phòng hát / Xóa phòng </h3>
+                <p class="part-tutorial">
+                <ul>
+                    <li>
+                        - Để xóa phòng hát thì click chuột trái vào biểu tượng thùng rác, sau đó nhấn Yes để xóa hoặc
+                        No để hủy thao tác
+                        <br>
+                        <img src="./img/DSPhong/xoaPhong.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+            <!-- End: DANH SÁCH PHÒNG HÁT-->
 
             <!-- Begin: QUẢN LÝ ĐẶT PHÒNG -->
             <div id="timKiemPhong" class="part">
@@ -1017,21 +1092,18 @@
             <div id="timKiemNhanVien" class="part">
                 <h3 class="part-title">Quản lý nhân viên / Tìm kiếm</h3>
                 <p class="part-tutorial">
-
-
                 <ul>
                     <li>
-                        some text
+                        Chọn cột để tìm kiếm, sau đó nhập thông tin vào ô tìm kiếm(mặc định sẽ là tìm kiếm theo tên).
+                        Có thể lọc nhân viên theo Giới tính, Loại nhân viên hoặc Ca làm. Khi click nút Làm mới thì các
+                        ô tìm kiếm, các ô lọc nhân viên sẽ trở về mặc định.
                         <br>
-                        <img src="" alt="" class="img-resize">
-                    </li>
-
-                    <li>
-
-                        <img src="" alt="" class="img-resize">
+                        Người dùng có thể xem thêm nhiều kết quả hơn bằng việc click vào các nút chuyển trang ở bên
+                        dưới bảng nhân viên
+                        <br>
+                        <img src="./img/QLNhanVien/timNhanVien.png" alt="" class="img-resize">
                     </li>
                 </ul>
-
                 </p>
             </div>
             <hr>
@@ -1040,20 +1112,42 @@
                 <h3 class="part-title">Quản lý nhân viên / Thêm nhân viên</h3>
                 <p class="part-tutorial">
 
-
                 <ul>
                     <li>
-                        some text
+                        Click chuột trái vào nút Thêm
                         <br>
-                        <img src="" alt="" class="img-resize">
+                        <img src="./img/QLNhanVien/themNhanVien1.png" alt="" class="img-resize">
                     </li>
-
                     <li>
-
-                        <img src="" alt="" class="img-resize">
+                        Sau khi bấm nút Thêm sẽ hiện form như bên dưới:
+                        <br>
+                        <img src="./img/QLNhanVien/themNhanVien2.png" alt="" class="img-resize">
                     </li>
-                </ul>
+                    <li>
+                        Sau khi nhập thông tin xong thì bấm nút :
+                        <br>
+                        <ul>
+                            <li>
+                                + Thêm: để lưu xuống cơ sở dữ liệu.
+                            </li>
+                            <li>
+                                + Làm mới: xóa tất cả nhưng gì đã điền vào form.
+                            </li>
+                        </ul>
 
+                        <br>
+                        Sau khi thêm sẽ hiển thị thông báo “Thêm thành công”, bấm nút OK để xác nhận -> form sẽ được
+                        làm mới như lúc đầu.
+                        <br>
+                        <img src="./img/QLNhanVien/themNhanVien3.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Người dùng click nút X (hoặc click ra vùng bên ngoài) để tắt giao diện thêm nhân viên
+                        <br>
+                        <img src="./img/QLNhanVien/themNhanVien4.png" alt="" class="img-resize">
+                    </li>
+
+                </ul>
                 </p>
             </div>
             <hr>
@@ -1062,24 +1156,180 @@
                 <h3 class="part-title">Quản lý nhân viên / Xem và cập nhật thông tin nhân viên</h3>
                 <p class="part-tutorial">
 
-
                 <ul>
                     <li>
-                        some text
+                        Click chuột trái 2 lần vào nhân viên cần xem thông tin -> Hiện ra tab thông tin chi tiết của
+                        nhân viên đó.
                         <br>
-                        <img src="" alt="" class="img-resize">
+                        <img src="./img/QLNhanVien/suaNhanVien.png" alt="" class="img-resize">
                     </li>
-
                     <li>
-
-                        <img src="" alt="" class="img-resize">
+                        Chọn tab “Sửa” để sửa thông tin -> Bấm nút Lưu để lưu thông tin xuống cơ sở dữ liệu.
+                        <br>
+                        <img src="./img/QLNhanVien/suaNhanVien2.png" alt="" class="img-resize">
                     </li>
                 </ul>
-
                 </p>
             </div>
             <hr>
             <!-- End: QUẢN LÝ NHÂN VIÊN -->
+
+            <!-- Begin: BÁO CÁO THỐNG KÊ -->
+            <div id="thongKeDoanhThu" class="part">
+                <h3 class="part-title">Báo cáo thống kê / Thống kê doanh thu</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        Chọn báo cáo thống kê -> chọn thống kê doanh thu ta được giao diện bên dưới
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Chọn thống kê theo ngày hoặc thống kê theo tháng/năm, sau đó bảng sẽ hiển thị danh sách
+                        các hóa đơn và tổng tiền hóa đơn đó, tổng số hóa đơn đã thống kê được và tổng tiền trong
+                        khoảng thời gian đã chọn, sự chênh lệch theo tháng/năm
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu2.png" alt="" class="img-resize">
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu3.png" alt="" class="img-resize">
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu4.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Phần mềm cũng có thể trực quan hóa dữ liệu bằng biểu đồ khi thống kê bằng tháng/năm bằng
+                        cách chọn nút biểu đồ
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu5.png" alt="" class="img-resize">
+
+                    </li>
+
+                    <li>
+                        Chọn loại phòng nếu chỉ muốn thống kê doanh thu 1 loại phòng nhất định
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu6.png" alt="" class="img-resize">
+                    </li>
+
+                    <li>
+                        Nếu muốn xuất danh sách ta chọn nút xuất danh sách phần mềm sẽ hiển thị cửa sổ để chọn
+                        đường dẫn lưu file excel
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeDoanhThu7.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="thongKeHangHoa" class="part">
+                <h3 class="part-title">Báo cáo thống kê / Thống kê hàng hóa</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        Chọn báo cáo thống kê -> chọn thống kê hàng hóa ta được giao diện bên dưới, tương tự
+                        thống kê doanh thu ta cũng có thống kê theo ngày hoặc thống kê theo tháng/năm
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeHangHoa1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Chọn thống kê theo ngày hoặc thống kê theo tháng/năm, sau đó bảng “Các sản phẩm bán
+                        chạy” sẽ hiển thị danh sách các sản phẩm đã được sử dụng trong khoảng thời gian đã chọn và
+                        số lượng nhập vào của sản phẩm, tổng trị giá và tổng tất cả
+                        <br>
+                        Bảng “Tỉ lệ tiêu thụ của các loại sản phẩm” sẽ hiển thị danh sách các loại sản phẩm và
+                        phần
+                        trăm sử dụng trong khoảng thời gian đã chọn tổng trị giá và tổng tất ca
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeHangHoa2.png" alt="" class="img-resize">
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeHangHoa3.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+            <!-- End: BÁO CÁO THỐNG KÊ -->
+
+            <!-- Begin: QUẢN LÝ HÀNG HÓA -->
+            <div id="xemMatHang" class="part">
+                <h3 class="part-title">Quản lý hàn hóa / Xem mặt hàng</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        Chọn quản lý hàng hóa -> chọn chọn xem mặt hàng ta được giao diện bên dưới, bảng hiển
+                        thị danh sách thông tin mặt hàng hiện có
+                        <br>
+                        <img src="./img/QuanLyHangHoa/xemMatHang.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Nếu muốn tìm thông tin của một sản phẩm nào đó ta cần nhập thông tin vào ô tìm kiếm và có thể
+                        chọn tiêu chí để giới hạn kết quả tìm kiếm
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeHangHoa2.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Chọn xuất file nếu muốn xuất danh sách mặt hàng, phần mềm sẽ hiển thị cửa sổ xuất file
+                        để chọn đường dẫn
+                        <br>
+                        <img src="./img/BaoCaoThongKe/thongKeHangHoa2.png" alt="" class="img-resize">
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <hr>
+
+            <div id="themMatHang" class="part">
+                <h3 class="part-title">Quản lý hàn hóa / Thêm mặt hàng</h3>
+                <p class="part-tutorial">
+
+                <ul>
+                    <li>
+                        Chọn quản lý hàng hóa-> chọn thêm mặt hàng ta được giao diện bên dưới bao gồm thông
+                        tin của mặt hàng và bảng danh sách mặt hàng có trong 1 lô hàng
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang1.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Nhập thông tin của mặt hàng
+
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang2.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Nếu là một sản phẩm mới hoàn toàn ta sẽ tích vào ô sản phẩm mới như hình dưới và nhập tên
+                        sản
+                        phẩm
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang3.png" alt="" class="img-resize">
+                    </li>
+
+                    <li>
+                        chọn nút thêm để thêm sản phẩm vào danh sách
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang4.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Nếu không muốn nhập sản phẩm nào nữa thì chọn hàng cần xóa và nhấn nút phải chuột để hiển thị
+                        xác nhận xóa nhập sản phẩm
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang5.png" alt="" class="img-resize">
+                    </li>
+                    <li>
+                        Có thể xem,sửa hoặc thêm thông tin của 1 nhà cung cấp bằng cách chọn nút thêm nhà cung cấp
+                        hoặc nút xem thông tin
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang6.png" alt="" class="img-resize">
+                        <br>
+                        <img src="./img/QuanLyHangHoa/themMatHang7.png" alt="" class="img-resize">
+                    </li>
+
+                </ul>
+                </p>
+            </div>
+            <hr>
+            <!-- End: QUẢN LÝ HÀNG HÓA -->
 
 
 
